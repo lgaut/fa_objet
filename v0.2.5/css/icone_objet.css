@@ -1,0 +1,21 @@
+.fa_objet_actuelle i{
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+p.fa_objet_actuelle{
+    margin-bottom: 0px;
+}
+
+select#fa_objet {
+    margin-bottom: 15px;
+}
+
+span.fa{
+    float: left;
+    margin-right: 5px;
+}
+
+.ui-selectmenu-menu .overflow{
+    height: 200px;
+}

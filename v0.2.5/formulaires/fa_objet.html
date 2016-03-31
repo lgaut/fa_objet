@@ -1,0 +1,92 @@
+[(#REM)
+	Formulaire de choix de fa sur un objet
+][(#REM)
+	Action (CVT) :
+		formulaires/fa_objet.php
+	Inclus dans :
+		inclure/fa_objet.html avec les paramètres :
+			#ENV{objet},#ENV{id_objet},#ENV{fa_objet}
+		
+][(#REM)
+	Particularités :
+		Si plugin Palette activé et si #FA_OBJET n'existe pas, il faut un code hexadécimal pour initialisé la saisie,
+		c'est pourquoi value=#FFFFFF
+	
+]<div class="formulaire_spip formulaire_config formulaire_#FORM">
+	<h3 class="titrem">[(#CHEMIN{img_pack/fa_objet-24.png}|balise_img{'',cadre-icone})]Icône</h3>
+	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+	
+	[(#ENV{editable}|oui)
+	<form method="post" action="#ENV{action}">
+		#ACTION_FORMULAIRE{#ENV{action}}
+		[<input type='hidden' name='objet' value='(#ENV{objet})' />]
+		[<input type='hidden' name='id_objet' value='(#ENV{id_objet})' />]
+		<ul>
+			[<li>
+				<label><:icone_objet:icone_actuelle:></label>
+				<p class="fa_objet_actuelle"><i class="#FA_OBJET fa-3x"></i>(#FA_OBJET)</p>
+			</li>][(#FA_OBJET|non)
+			<li><:icone_objet:aucune_icone_definie:></li>]
+			<li class="editer_icone_objet[(#ENV**{erreurs}|table_valeur{fa_objet}|oui)erreur]">
+				<label for="fa_objet"><:fa_objet:choisir_une_nouvelle_icone:></label>[
+				<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{fa_objet})</span>
+				
+				
+				
+				]
+				
+				<INCLURE{fond=inclure/select}>
+			</li>
+		</ul>
+		<p class="boutons clearfix">
+			<input type="submit" class="submit" value="<:bouton_enregistrer|attribut_html:>" style="float:right;" />
+			[(#FA_OBJET|oui) <input type="submit" class="submit" name="supprimer" value="<:icone_objet:bouton_supprimer|attribut_html:>" style="float:left;" />]
+		</p>
+	</form>
+	]
+	[(#ENV{editable}|non)
+		[(#FA_OBJET|non)<p><:icone_objet:aucune_icone_definie:></p>]
+		[<p class="clearfix">
+			<label><:icone_objet:icone_actuelle:></label>
+			<div class="icone_objet_actuelle"
+			>(#FA_OBJET)</div>
+		</p>]
+	]
+</div>
+
+
+
+<script>
+    $(document).ready(function() {
+         $(function() {
+    $.widget( "custom.iconselectmenu", $.ui.selectmenu, {
+      _renderItem: function( ul, item ) {
+        var li = $( "<li>", { text: item.label } );
+ 
+        if ( item.disabled ) {
+          li.addClass( "ui-state-disabled" );
+        }
+ 
+        $( "<span>", {
+          style: item.element.attr( "data-style" ),
+          "class": "fa fa-" + item.element.text()
+        })
+          .appendTo( li );
+ 
+        return li.appendTo( ul );
+      }
+    });
+ 
+    $( "#fa_objet")
+      .iconselectmenu()
+      .iconselectmenu( "menuWidget" )
+        .addClass( "overflow" )
+        .addClass( "ui-menu-icons" );
+ 
+
+  });
+        
+        //$("#fa_objet" ).selectmenu();
+        $('#fa_objet option[value="#FA_OBJET"]').prop('selected', true);
+    });
+</script>

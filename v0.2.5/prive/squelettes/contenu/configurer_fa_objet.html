@@ -1,0 +1,12 @@
+[(#REM)
+	Création de la page de configuration du plugin fa_objet
+][(#REM)
+	Utilise :
+		formulaires/configurer_fa_objet.html
+]
+[(#AUTORISER{configurer,fa_objet}|oui)
+	<h1><:fa_objet:configurer_fa_objet:></h1>
+	<div class="ajax">
+		#FORMULAIRE_CONFIGURER_FA_OBJET
+	</div>
+]

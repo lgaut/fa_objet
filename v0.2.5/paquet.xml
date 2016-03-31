@@ -1,0 +1,27 @@
+<paquet
+	prefix="fa_objet"
+	categorie="maintenance"
+	version="0.3.6"
+	schema="1.0.0"
+	etat="stable"
+	compatibilite="[3.0.0;3.1.*]"
+	logo="img/fa_objet-64.png"
+	documentation="http://contrib.spip.net/Couleur-d-Objet"
+>	
+
+	<nom>Icone d'Objet</nom>
+	<!-- Une fa pour chaque objet -->
+	
+	<auteur>chankalan</auteur>
+	
+	<licence lien="http://www.gnu.org/licenses/gpl-3.0.html">GPL 3</licence>
+
+	<lib nom="fontawesome" lien="https://fortawesome.github.io/Font-Awesome/assets/font-awesome-4.5.0.zip" />
+	
+	<pipeline nom="declarer_tables_auxiliaires" inclure="base/fa_objet.php" />
+	<pipeline nom="affiche_droite" inclure="fa_objet_pipelines.php" />
+	<pipeline nom="header_prive" inclure="fa_objet_pipelines.php" />
+	<pipeline nom="insert_head_css"  inclure="fa_objet_pipelines.php" />
+	<pipeline nom="jqueryui_plugins" inclure="fa_objet_pipelines.php" />
+	
+</paquet>

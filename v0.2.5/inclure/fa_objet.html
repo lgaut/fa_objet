@@ -1,0 +1,11 @@
+[(#REM)
+	Afficher le formulaire de choix de fa sur un objet
+][(#REM)
+	Utilise :
+		formulaires/fa_objet.html
+	Inclus dans :
+		colonne droite espace privé pour les objets sélectionnés dans la configuration du plugin : cf fa_objet_pipelines.php
+]
+<div class="ajax">
+[(#FORMULAIRE_FA_OBJET{#ENV{objet},#ENV{id_objet},#ENV{fa_objet}})]
+</div>
