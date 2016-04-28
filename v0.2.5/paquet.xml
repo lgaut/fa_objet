@@ -16,7 +16,7 @@
 	
 	<licence lien="http://www.gnu.org/licenses/gpl-3.0.html">GPL 3</licence>
 
-	<lib nom="fontawesome" lien="https://fortawesome.github.io/Font-Awesome/assets/font-awesome-4.5.0.zip" />
+	<lib nom="fontawesome" lien="https://fortawesome.github.io/Font-Awesome/assets/font-awesome-4.6.1.zip" />
 	
 	<pipeline nom="declarer_tables_auxiliaires" inclure="base/fa_objet.php" />
 	<pipeline nom="affiche_droite" inclure="fa_objet_pipelines.php" />
